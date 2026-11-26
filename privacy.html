@@ -35,17 +35,18 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 
 <h1>π Calc Privacy Policy</h1>
 <p>π Calc (PiCalc) · Android package <code>com.blessed.picalc</code></p>
-<p class="meta">Last updated: 24 November 2026</p>
+<p class="meta">Last updated: 26 November 2026</p>
 
 <div class="card">
 <p><strong>Short version</strong></p>
 <ul>
-<li>Your vault photos, PINs and saved chats stay on your phone. They are never uploaded.</li>
+<li>Your private photos, PINs and saved chats stay on your phone. They are never uploaded.</li>
 <li>Chat messages are end-to-end encrypted. Our server passes them on but cannot read them.</li>
 <li>A delivered message is deleted from the server as soon as your partner's phone saves it. An undelivered message is deleted after 7 days at most.</li>
 <li>You do not give us your name, email address or phone number to use the app.</li>
 <li>No ads, no analytics and no crash-reporting tools. We do not sell your data.</li>
 <li>You can delete your account inside the app. See <a href="delete-account.html">Delete your account</a>.</li>
+<li>If π Calc is not opened while online for 12 months, the account is deleted automatically.</li>
 </ul>
 </div>
 
@@ -70,12 +71,12 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 
 <h2 id="who">1. Who we are</h2>
 <p>π Calc is made by Dharmesh Jadhav, Vadodara, Gujarat, India ("we", "us"). This policy covers the π Calc Android app.</p>
-<p>π Calc looks and works like a calculator. Your secret PIN opens a private space with an encrypted vault and a private chat with one partner.</p>
+<p>π Calc looks and works like a calculator. Your secret PIN opens a private space with Private Photos (an encrypted vault) and a private chat with one partner.</p>
 
 <h2 id="phone">2. Data kept only on your phone</h2>
 <p>The following data is stored only on your phone. π Calc does not upload it.</p>
 <ul>
-<li><strong>Vault photos.</strong> Photos you add are encrypted (AES-256-GCM) and stored inside π Calc. Adding a photo does not delete the original from your gallery.</li>
+<li><strong>Private photos.</strong> Photos you add are encrypted (AES-256-GCM) and stored inside π Calc. Adding a photo does not delete the original from your gallery.</li>
 <li><strong>Saved chat messages.</strong> Messages you send and receive are saved in the same encrypted storage.</li>
 <li><strong>Your PINs.</strong> Your real PIN and your decoy PIN are never stored as plain text and never sent anywhere. The app turns the PIN into an encryption key (PBKDF2-HMAC-SHA256) together with a random secret kept in Android's secure storage.</li>
 <li><strong>Your private chat key.</strong> The secret half of your chat encryption key stays inside the encrypted vault on your phone.</li>
@@ -83,6 +84,7 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <li><strong>Settings.</strong> Theme, shake and flip lock settings, and your 18+ and Chat Terms confirmation. We do not ask for your date of birth.</li>
 <li><strong>Calculator history.</strong> The last 30 calculations are kept in memory only while the app is open. They are not saved and not uploaded. Entries that look like a PIN are not added.</li>
 <li><strong>Sign-in token.</strong> A token for your anonymous account (see section 3), so the app can reconnect.</li>
+<li><strong>Deletion code.</strong> If you tap Show deletion code, the code is kept in the encrypted vault. Only its fingerprint (hash) is sent to our server.</li>
 </ul>
 <p>Android cloud backup is turned off for π Calc, so this data is not copied to your Google backup. If you uninstall π Calc or clear its storage, this data is erased and we cannot restore it. There is no PIN recovery.</p>
 <p>Shake and flip lock reads your phone's motion sensor on the phone only. These readings are not saved or uploaded.</p>
@@ -93,9 +95,9 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <div class="card">
 <h3>Anonymous account</h3>
 <dl>
-<dt>What</dt><dd>A random account ID, created automatically when you first use the chat, plus the time it was created and last signed in. There is no email address, phone number, name or password.</dd>
-<dt>Why</dt><dd>So that only your phone can collect messages sent to you and act on your room.</dd>
-<dt>Deleted</dt><dd>When you delete your account.</dd>
+<dt>What</dt><dd>A random account ID, created automatically when you first use the chat, plus the time it was created and last signed in, and the day it was last used online (set by our server, at most once a day). We also keep a one-way fingerprint (hash) of your Deletion code, never the code itself. There is no email address, phone number, name or password.</dd>
+<dt>Why</dt><dd>So that only your phone can collect messages sent to you and act on your room. The last-used day lets us delete accounts that are no longer used. The Deletion code fingerprint lets us delete your account when you email us the code.</dd>
+<dt>Deleted</dt><dd>When you delete your account. If π Calc is not opened while online for 12 months, the account is deleted automatically. The last-used day and the code fingerprint are removed with the account, at the latest by the next daily cleanup.</dd>
 </dl>
 </div>
 
@@ -113,7 +115,7 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <dl>
 <dt>What</dt><dd>A room ID, both partners' public keys, the time the room was created, and whether the room has Pro and until when. While you are waiting for your partner, also the 6-digit SoulCode.</dd>
 <dt>Why</dt><dd>To connect the two phones.</dd>
-<dt>Deleted</dt><dd>The SoulCode works for 10 minutes, timed by the server. It is removed from the room when your partner joins, and replaced if you make a new one. The room is deleted when either partner uses "Clear chat and both vaults" or deletes their account.</dd>
+<dt>Deleted</dt><dd>The SoulCode works for 10 minutes, timed by the server. It is removed from the room when your partner joins, and replaced if you make a new one. The room is deleted when either partner uses "Clear chat and photos for both" or deletes their account.</dd>
 </dl>
 </div>
 
@@ -131,7 +133,7 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <dl>
 <dt>What</dt><dd>The two account IDs, the room ID and the time of the block.</dd>
 <dt>Why</dt><dd>To stop messages and new pairing between the two accounts.</dd>
-<dt>Deleted</dt><dd>When the person who blocked unblocks (Stealth → Account and data → Manage blocked partners), or when either account is deleted.</dd>
+<dt>Deleted</dt><dd>When the person who blocked unblocks (Account → Blocked people), or when either account is deleted.</dd>
 </dl>
 </div>
 
@@ -158,15 +160,15 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <dl>
 <dt>What</dt><dd>The product you bought, the Google Play order ID, the expiry date, a fingerprint (SHA-256 hash) of the Google Play purchase token, and a copy of the purchase token encrypted with a server key. We never receive your card or bank details.</dd>
 <dt>Why</dt><dd>To check the purchase with Google, give Pro to your room, and check renewals, cancellations and refunds.</dd>
-<dt>Deleted</dt><dd>The encrypted token copy is removed when Google Play reports that the subscription has expired or the purchase was cancelled. The rest of the purchase record is kept until you delete your account. Clearing both vaults does not delete it.</dd>
+<dt>Deleted</dt><dd>The encrypted token copy is removed when Google Play reports that the subscription has expired or the purchase was cancelled. The rest of the purchase record is kept until you delete your account. Using "Clear chat and photos for both" does not delete it.</dd>
 </dl>
 </div>
 
 <div class="card">
 <h3>Notices for your partner</h3>
 <dl>
-<dt>What</dt><dd>When you use "Clear chat and both vaults", the server keeps a short notice for your partner: the room ID, your partner's account ID and the time. When you delete your account, the server keeps an "account closed" marker for your partner: the room ID, your partner's account ID and public key, and the time. Neither contains messages, photos, keys or your account ID.</dd>
-<dt>Why</dt><dd>So your partner's app knows what happened. A Clear-both notice tells their app to erase their vault. An "account closed" marker tells their app to end the pairing but keep their vault.</dd>
+<dt>What</dt><dd>When you use "Clear chat and photos for both", the server keeps a short notice for your partner: the room ID, your partner's account ID and the time. When you delete your account, the server keeps an "account closed" marker for your partner: the room ID, your partner's account ID and public key, and the time. Neither contains messages, photos, keys or your account ID.</dd>
+<dt>Why</dt><dd>So your partner's app knows what happened. A Clear-both notice tells their app to erase their private photos and saved chats. An "account closed" marker tells their app to end the pairing but keep their vault.</dd>
 <dt>Deleted</dt><dd>Automatically after 365 days, or earlier if your partner deletes their own account.</dd>
 </dl>
 </div>
@@ -183,11 +185,12 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <h3>The server cannot see</h3>
 <ul>
 <li>The content of your chat messages, stickers, touch signals or receipts. These are end-to-end encrypted.</li>
-<li>Your vault photos, your PINs or your private chat key. They never leave your phone.</li>
+<li>Your private photos, your PINs or your private chat key. They never leave your phone.</li>
 </ul>
 <h3>The server can see</h3>
 <ul>
 <li>Your anonymous account ID, your public key and your invite code.</li>
+<li>The day your account was last used online.</li>
 <li>Who is paired with whom (as public keys and account IDs, not names).</li>
 <li>For each waiting message: sender, receiver, type (for example text, sticker, touch or receipt), size, and when it arrived. Because the message is deleted when it is saved, the server can also tell roughly when it was delivered.</li>
 <li>Blocks, invite rewards and Pro purchase details listed in section 3.</li>
@@ -202,7 +205,7 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <li><strong>Your email provider</strong>, if you email us. If you use "Report a problem", the app opens an email draft that includes your room reference. You can edit it, and nothing is sent until you send it yourself.</li>
 </ul>
 <p>π Calc has no ads, no analytics, no crash-reporting tools and no Firebase. We do not sell your data and do not share it for advertising.</p>
-<p>We may disclose data if the law requires it. We cannot hand over message content, vault photos or PINs, because we do not have them.</p>
+<p>We may disclose data if the law requires it. We cannot hand over message content, private photos or PINs, because we do not have them.</p>
 
 <h2 id="security">6. Security</h2>
 <ul>
@@ -221,14 +224,14 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <li><strong>Undelivered message:</strong> deleted after 7 days at most.</li>
 <li><strong>Invite reward notice:</strong> until the inviting friend's app collects it, or their room or either account is deleted. The 7-day limit does not apply to it.</li>
 <li><strong>SoulCode:</strong> works for 10 minutes. Removed when your partner joins or you make a new one.</li>
-<li><strong>Room:</strong> until "Clear chat and both vaults" or account deletion by either partner.</li>
+<li><strong>Room:</strong> until "Clear chat and photos for both" or account deletion by either partner.</li>
 <li><strong>Clear-both notice for your partner:</strong> 365 days.</li>
 <li><strong>"Account closed" marker for your partner:</strong> 365 days.</li>
 <li><strong>Block:</strong> until unblocked or either account is deleted.</li>
-<li><strong>Anonymous account, public key, invite code, join counter, invite rewards, purchase records:</strong> until you delete your account. We do not delete inactive accounts automatically.</li>
+<li><strong>Anonymous account, public key, invite code, join counter, invite rewards, purchase records:</strong> until you delete your account. If π Calc is not opened while online for 12 months, the account is deleted automatically. An account with an active Google Play purchase is not deleted automatically.</li>
 <li><strong>Encrypted purchase token copy:</strong> until the subscription expires or the purchase is cancelled, or until you delete your account.</li>
 <li><strong>Server logs:</strong> up to 7 days. Sign-in audit logs: up to 24 hours.</li>
-<li><strong>Data on your phone:</strong> until you delete it, clear both vaults, delete your account, or uninstall the app.</li>
+<li><strong>Data on your phone:</strong> until you delete it, use "Clear chat and photos for both", delete your account, or uninstall the app.</li>
 </ul>
 
 <h2 id="permissions">8. Android permissions</h2>
@@ -238,16 +241,17 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <li><code>com.android.vending.BILLING</code>: for Google Play purchases.</li>
 <li><code>DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>: an internal Android protection added automatically. It gives no access to your data.</li>
 </ul>
-<p>π Calc does not ask for camera, microphone, location, contacts or notification permissions, or access to all your photos. To add a photo to the vault, Android's photo picker opens and you choose one photo.</p>
+<p>π Calc does not ask for camera, microphone, location, contacts or notification permissions, or access to all your photos. To add a photo to Private Photos, Android's photo picker opens and you choose one photo.</p>
 
 <h2 id="rights">9. Your rights</h2>
 <p>Depending on where you live, you may have the right to ask for a copy of your data, to correct it, to delete it, or to complain to a data protection authority. To make a request, email us (section 13).</p>
-<p>Your account has no name, email or phone number. To find your records we need your invite code (starts with <code>PI-</code>) or your room reference. We may ask questions to confirm that the request is yours. We cannot give you message content or vault photos, because we do not have them.</p>
-<p>You can also choose not to use the chat at all. The calculator and the vault work without it.</p>
+<p>Your account has no name, email or phone number. To find your records we need your Deletion code (Account → Show deletion code). We may ask questions to confirm that the request is yours. We cannot give you message content or private photos, because we do not have them.</p>
+<p>You can also choose not to use the chat at all. The calculator and Private Photos work without it.</p>
 
 <h2 id="delete">10. Deleting your account</h2>
-<p>You can delete your account in the app: <strong>Stealth → Account and data → Delete my account</strong>. Full steps, what is deleted and what is kept are on the <a href="delete-account.html">Delete your account</a> page.</p>
-<p>"Clear chat and both vaults" is different: it erases both vaults and the shared room, but keeps your account.</p>
+<p>You can delete your account in the app: <strong>Account → Delete my account</strong>. Full steps, what is deleted and what is kept are on the <a href="delete-account.html">Delete your account</a> page.</p>
+<p>Without the app, email us your Deletion code (Account → Show deletion code). We delete the account that matches the code, the same way as in-app deletion.</p>
+<p>"Clear chat and photos for both" is different: it erases the private photos and saved chats on both phones and the shared room, but keeps your account.</p>
 <p>Deleting your account or uninstalling the app does not cancel a Google Play subscription. Cancel it in Google Play.</p>
 
 <h2 id="children">11. Children</h2>
