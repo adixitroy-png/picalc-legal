@@ -30,15 +30,14 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 
 <h1>Delete your π Calc account</h1>
 <p>App: <strong>π Calc (PiCalc)</strong> · <code>com.blessed.picalc</code><br>Developer: <strong>Dharmesh Jadhav</strong>, Vadodara, Gujarat, India</p>
-<p class="meta">Last updated: 24 November 2026 · <a href="privacy.html">Privacy policy</a></p>
+<p class="meta">Last updated: 26 November 2026 · <a href="privacy.html">Privacy policy</a></p>
 
 <h2 id="in-app">1. Delete your account in the app</h2>
 <div class="card">
 <ol>
 <li>Open π Calc and type your secret PIN to open your private space.</li>
-<li>Tap <strong>Stealth</strong> at the bottom of the screen.</li>
-<li>Scroll down to <strong>Account and data</strong>.</li>
-<li>Tap <strong>Delete my account</strong>.</li>
+<li>Tap <strong>Account</strong> at the bottom of the screen.</li>
+<li>Scroll down and tap <strong>Delete my account</strong>.</li>
 <li>Read the message, then tap <strong>Delete my account permanently</strong>.</li>
 <li>Stay online until you see <strong>"Account deleted. PiCalc has been reset."</strong></li>
 </ol>
@@ -46,17 +45,15 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <p class="warn">This cannot be undone.</p>
 <p>Your phone must be online. If the app shows "Couldn't confirm deletion", nothing has been deleted yet. Connect to the internet and try again.</p>
 <p>Deleting your account does not cancel a Google Play subscription. Cancel it in Google Play → Payments &amp; subscriptions.</p>
-<p><strong>Not the same as "Clear chat and both vaults".</strong> That button (under Emergency wipe on the same screen) erases both vaults and the shared chat, but keeps your account. To remove your account, use <strong>Delete my account</strong>.</p>
+<p><strong>Not the same as "Clear chat and photos for both".</strong> That button (on the same Account screen) erases the private photos and saved chats on both phones and the shared chat, but keeps your account. To remove your account, use <strong>Delete my account</strong>.</p>
 
 <h2 id="email">2. Ask for deletion without the app</h2>
 <p>If you cannot use the app, email <a href="mailto:adixitroy@gmail.com?subject=PiCalc%20account%20deletion">adixitroy@gmail.com</a> with the subject <strong>PiCalc account deletion</strong>.</p>
-<p>Your π Calc account has no name, email address or phone number. To find it, we need one of these, if you have it:</p>
-<ul>
-<li>your invite code, which starts with <code>PI-</code> (shown in the "Free Pro Pass" card on the Stealth screen), or</li>
-<li>your room reference (shown in the email draft made by "Report a problem").</li>
-</ul>
-<p>These codes help us find your records, but they do not prove the account is yours. We may ask you questions to confirm the request before we delete anything. We will never ask for your PIN.</p>
-<p>If you no longer have the app and do not have either code, we have no way to tell which account is yours, so we cannot find it.</p>
+<p>Your π Calc account has no name, email address or phone number. To delete it without the app, you need your <strong>Deletion code</strong>. Find it in the app: <strong>Account → Show deletion code</strong>. It looks like <code>DEL-XXXX-XXXX-XXXX</code>.</p>
+<p>Email that code to <a href="mailto:adixitroy@gmail.com?subject=PiCalc%20account%20deletion">adixitroy@gmail.com</a> with the subject <strong>PiCalc account deletion</strong>. We delete the account that matches the code, the same way as in-app deletion. We will never ask for your PIN.</p>
+<p>Anyone who has your Deletion code can ask us to delete your account. Keep it private. If someone else may have seen it, tap <strong>New code</strong>: the old code stops working at once.</p>
+<p>If you erase your private data (for example with "Clear chat and photos for both") or lose your phone, the code on your phone is gone. Tapping Show deletion code later creates a new code and the old one stops working.</p>
+<p>Without the Deletion code we cannot tell which account is yours, so we cannot delete it by email.</p>
 <p>Deletion by email removes your data from our server. It cannot erase data on your phone. To remove that, uninstall π Calc.</p>
 
 <h2 id="deleted">3. What is deleted</h2>
@@ -70,11 +67,12 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <li>Your Pro purchase records, including the encrypted purchase token copy.</li>
 <li>Your join-attempt counter.</li>
 <li>Any notices that were waiting for you.</li>
+<li>The day your account was last used and the fingerprint of your Deletion code. After in-app deletion these two go at the latest with the next daily cleanup.</li>
 </ul>
 <p>The server deletes all of this in one step. If any part fails, nothing is deleted and the app tells you to try again.</p>
 <h3>From your phone (in-app deletion only)</h3>
 <ul>
-<li>Your vault photos, saved chats, PINs, keys, settings, wrong-PIN records and 18+ confirmation.</li>
+<li>Your private photos, saved chats, PINs, keys, settings, wrong-PIN records and 18+ confirmation.</li>
 <li>π Calc signs out and goes back to a fresh calculator.</li>
 <li>Original photos in your gallery are not touched.</li>
 </ul>
@@ -83,19 +81,24 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.92em}
 <ul>
 <li><strong>"Account closed" marker for your partner: 365 days.</strong> If you were paired, the server keeps a small marker for your partner. It holds the room ID, your partner's account ID and public key, and the time. It holds nothing about you: no account ID, no messages, no photos. It lets your partner's app end the pairing without erasing their vault. It is deleted automatically after 365 days, or earlier if your partner deletes their own account.</li>
 <li><strong>Server logs: up to 7 days.</strong> Our server provider keeps API and database logs, which may include an IP address and request time, for up to 7 days. Sign-in audit logs are kept for up to 24 hours on our current plan.</li>
-<li><strong>Your partner's phone.</strong> Your partner keeps their own vault and the chat messages already saved on their phone. We cannot delete data on their phone.</li>
+<li><strong>Your partner's phone.</strong> Your partner keeps their own private photos and the chat messages already saved on their phone. We cannot delete data on their phone.</li>
 <li><strong>Google Play.</strong> Google keeps its own record of your payments under Google's policies.</li>
 </ul>
 
 <h2 id="partner">5. What your partner sees</h2>
 <p>The next time your partner opens their private space while online, their app ends the pairing. Their chat then shows:</p>
 <p><strong>"Connection ended. Your vault and chat are safe on this phone. Pair again to keep chatting."</strong></p>
-<p>Their vault and saved chats stay on their phone. The message stays in their chat, also after they lock and unlock π Calc, until they tap <strong>Pair again</strong> or pair with someone new. It is shown only inside their private space, never on the calculator screen.</p>
-<p>If your partner does not open π Calc for more than 365 days, the marker is gone by then. Their app shows the same "Connection ended" message, and their vault is still not erased.</p>
+<p>Their private photos and saved chats stay on their phone. The message stays in their chat, also after they lock and unlock π Calc, until they tap <strong>Pair again</strong> or pair with someone new. It is shown only inside their private space, never on the calculator screen.</p>
+<p>If your partner does not open π Calc for more than 365 days, the marker is gone by then. Their app shows the same "Connection ended" message, and their private photos are still not erased.</p>
 <p>Messages your partner sent you that had not been delivered yet are deleted from the server and never reach you.</p>
 <p>This describes the current version of π Calc. A partner using an older version sees their chat go back to "Share a SoulCode with your partner to start chatting." instead.</p>
 
-<h2 id="contact">6. Contact</h2>
+<h2 id="inactive">6. Automatic deletion after 12 months</h2>
+<p>If π Calc is not opened while online for 12 months, we delete your account automatically, in the same way as in-app deletion. Opening only the calculator while online counts as use. Data on your phone is not erased.</p>
+<p>To know this, our server records the day your account was last used, at most once a day and by the server's own clock. The app sends nothing else for this.</p>
+<p>An account with an active Google Play purchase is not deleted automatically.</p>
+
+<h2 id="contact">7. Contact</h2>
 <p>Dharmesh Jadhav, Vadodara, Gujarat, India<br>Email: <a href="mailto:adixitroy@gmail.com">adixitroy@gmail.com</a></p>
 
 </main>
